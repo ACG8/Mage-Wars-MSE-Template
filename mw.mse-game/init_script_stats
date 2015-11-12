@@ -1,0 +1,102 @@
+## Stats ##
+
+hasLife := 			{ chosen(card.stats,	choice: "life") 		and isDestructible() }
+hasArmor := 		{ chosen(card.stats,	choice: "armor") 		and isDestructible() }
+hasChanneling := 	{ chosen(card.stats,	choice: "channeling") 	and isObject() }
+hasDefense := 		{ chosen(card.stats,	choice: "defense") 		and isObject()}
+
+hasLimit := 		{ card.limit != "none" and hasDefense()}
+
+## Slots ##
+
+hasSlot1 := {chosen(card.stats,	choice: "slot 1")  and isEquipment()}
+hasSlot2 := {chosen(card.stats,	choice: "slot 2")  and isEquipment()}
+has2Slots := { hasSlot1() and hasSlot2() }
+
+##########################################################
+###########################  Stats  ######################
+##########################################################
+
+## Stat choices ##
+
+statsX := { 325 }
+statsY := { 136 }
+statsW := { 42 }
+statsH := { if isObject() then 198 else 0 }
+
+## Life ##
+
+lifeX := { 327 }
+lifeY := { 288 }
+lifeW := { 36 }
+lifeH := { if hasLife() then 46 else 0 }
+
+lifeS := { if hasLife() then (5 + lifeH()) else 0 }
+
+## Armor ##
+
+armorX := { 327 }
+armorY := { lifeY() - lifeS() }
+armorW := { 37 }
+armorH := { if hasArmor() then 43 else 0 }
+
+armorS := { if hasArmor() then (5 + armorH()) else 0 }
+
+## Defense ##
+
+defenseX := { 327 }
+defenseY := { (if isEquipment() then slot2Y() else lifeY()) - armorS() - lifeS() - slot1S() - slot2S() }
+defenseW := { 37 }
+defenseH := { 0 + if hasDefense() then (if input=="text" then 30 else 43) }
+
+defenseS := { if hasDefense() then (5 + defenseH("image")) else 0 }
+
+## Reuse ##
+
+reuseX := { defenseX("image") + defenseW("image")/2 - reuseW()/2 }
+reuseY := { defenseY("image") + 22 }
+reuseW := { 0 + if hasDefense() then 15 }
+reuseH := { reuseW() }
+
+## Limitations
+
+limitX := { defenseX("image") + defenseW("image")/2 - limitW()/2 }
+limitY := { defenseY("image") - limitH() + 8 }
+limitW := { 0 + if hasDefense() then 27 }
+limitH := { limitW() }
+
+limitS := { 0 + if hasLimit() then (limitH() - 8) }
+
+## Channeling ##
+
+channelingX := { 327 }
+channelingY := { (if isEquipment() then slot2Y() else lifeY()) - limitS() - defenseS() - armorS() - lifeS() - slot1S() - slot2S() }
+channelingW := { 37 }
+channelingH := { 0 + if hasChanneling() then (if input=="text" then 30 else 43) }
+
+channelingS := { if hasChanneling() then (5 + channelingH("image")) else 0 }
+
+## Slot 1 ##
+
+slot1X := { 320 }
+slot1Y := { slot2Y() - slot2S() }
+slot1W := { 50 }
+slot1H := { if hasSlot1() then slot1W() else 0 }
+
+slot1S := { if hasSlot1() then (5 + slot1H()) else 0}
+
+## Slot 2 ##
+
+slot2X := { 320 }
+slot2Y := { 280 }
+slot2W := { 50 }
+slot2H := { if hasSlot2() then slot2W() else 0 }
+
+slot2S := { if hasSlot2() then (slot2H()) else 0}
+
+## Slot Conjunction ##
+
+conjEX := { 295 }
+conjEY := { if chosen(card.conjE,choice:"and") then 260 else 265 }
+conjEW := { 0 + if has2Slots() then (if chosen(card.conjE,choice:"and") then 33 else 38) }
+conjEH := { if chosen(card.conjE,choice:"and") then 33 else 28 }

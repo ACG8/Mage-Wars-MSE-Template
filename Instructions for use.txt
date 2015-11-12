@@ -1,0 +1,1 @@
+Simply copy and paste these folders into the "data" folder in your MSE installation, and you should be good to go!

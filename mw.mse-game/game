@@ -1,0 +1,505 @@
+﻿mse version: 2.0.0
+full name: Mage Wars
+short name: MW
+#installer group: Mage Wars/game files
+icon: magewarslogo.png
+position hint:-45
+
+init script:
+	#existsSchool2 := {card.school2 != "none"}
+
+	numberOfActionBars := {
+		(if existsActionBar(1) then 1 else 0) +
+		(if existsActionBar(2) then 1 else 0)
+		}
+	textBoxTop := {boxTop+(numberOfActionBars()*barSize)}
+
+	actionBarChoiceLimits := {
+		require_exclusive_choice(
+			input, 
+			choice1: "none", 
+			choice2: "attack",
+			choice3: "healing",
+			choice4: "general",
+			)
+		}
+	include file: init_script
+set field:
+	type: text
+	name: set title
+	identifying: true
+set field:
+	type: text
+	name: description
+	multi line: true
+set field:
+	type: text
+	name: artist
+set field:
+	type: text
+	name: copyright
+
+##########################################################
+########################  Header  ########################
+##########################################################
+
+card field:
+	type: text
+	name: name
+	description: name of the creature.
+	identifying: true
+	card list visible: true
+	card list column: 0
+	show statistics: true
+
+card field:
+	type: choice
+	name: type
+	description: type of the creature
+	script: to_upper(value)
+	choice: creature
+	choice: conjuration
+	choice: equipment
+	choice: enchantment
+	choice: attack
+	choice: incantation
+	card list visible: true
+	card list column: 1
+	show statistics: false
+
+card field:
+	type: text
+	name: subtype
+	description: subtypes of the creature.
+	#card list visible: false
+	#card list column: 2
+	#show statistics: false
+
+##########################################################
+####################  Targeting Bar  #####################
+##########################################################
+
+card field:
+	type: text
+	name: mana_cost
+	description: The amount of mana required to cast the spell
+	card list visible: true
+	card list column: 3
+	show statistics: false
+
+card field:
+	type: text
+	name: reveal_cost
+	card list visible: true
+	card list column: 4
+	show statistics: false
+
+card field:
+	type: choice
+	name: action_type
+	description: Is the spell a full or quick action?
+	choice: full
+	choice: quick
+
+card field:
+	type: text
+	name: range_text
+	description: The maximum and minimum range of the spell
+
+card field:
+	type: text
+	name: target_bar
+	description: Legal targets for this spell
+
+##########################################################
+##################  Levels and Schools  ##################
+##########################################################
+
+card field:
+	type: choice
+	name: school1
+	description: school of the spell
+	choice: nature
+	choice: war
+	choice: dark
+	choice: holy
+	choice: arcane
+	choice: mind
+	choice: water
+	choice: fire
+	choice: earth
+	choice: air
+	card list visible: true
+	card list column: 5
+
+card field:
+	type: text
+	name: level1
+	multi line: false
+	card list visible: true
+	card list column: 6
+
+card field:
+	type: choice
+	name: school2
+	description: school of the spell
+	choice: none
+	choice: nature
+	choice: war
+	choice: dark
+	choice: holy
+	choice: arcane
+	choice: mind
+	choice: water
+	choice: fire
+	choice: earth
+	choice: air
+	card list visible: true
+	card list column: 7
+
+card field:
+	type: text
+	name: level2
+	multi line: false
+	card list visible: true
+	card list column: 8
+
+card field:
+	type: choice
+	name: school3
+	description: school of the spell
+	choice: none
+	choice: nature
+	choice: war
+	choice: dark
+	choice: holy
+	choice: arcane
+	choice: mind
+	choice: water
+	choice: fire
+	choice: earth
+	choice: air
+	card list visible: true
+	card list column: 9
+
+card field:
+	type: text
+	name: level3
+	multi line: false
+	card list visible: true
+	card list column: 10
+
+card field:
+	type: choice
+	name: school4
+	description: school of the spell
+	choice: none
+	choice: nature
+	choice: war
+	choice: dark
+	choice: holy
+	choice: arcane
+	choice: mind
+	choice: water
+	choice: fire
+	choice: earth
+	choice: air
+	card list visible: true
+	card list column: 11
+
+card field:
+	type: text
+	name: level4
+	multi line: false
+	card list visible: true
+	card list column: 12
+
+card field: conjunction
+	type: choice
+	name: conjunction
+	description: conjunction between schools
+	choice: and
+	choice: or
+
+##########################################################
+####################  Action Bar  ########################
+##########################################################
+
+## Action Bar 1 ##
+
+card field:
+	type: multiple choice
+	name: action_bar1
+	description: action bar
+	choice:
+		name: none
+		type: radio
+	choice:
+		name: attack
+		type: radio
+	choice:
+		name: healing
+		type: radio
+	choice:
+		name: general
+		type: radio
+		line below: true
+	choice: action
+	choice: range
+	choice: zone attack
+	choice: 
+		name: type
+		line below: true
+	choice: d6
+	choice: d12
+	choice: text
+	script: actionBarChoiceLimits(value)
+
+card field:
+	type: choice
+	name: actionAB1
+	choice: quick
+	choice: full
+	choice: damage barrier
+
+card field:
+	type: choice
+	name: rangeAB1
+	choice: melee
+	choice: ranged
+
+card field:
+	type: choice
+	name: typeAB1
+	choice: psychic
+	choice: healing
+	choice: light
+	choice: lightning
+	choice: flame
+	choice: frost
+	choice: acid
+	choice: hydro
+	choice: wind
+	choice: poison
+
+## Action Bar 2 ##
+
+card field:
+	type: multiple choice
+	name: action_bar2
+	description: action bar
+	choice:
+		name: none
+		type: radio
+	choice:
+		name: attack
+		type: radio
+	choice:
+		name: healing
+		type: radio
+	choice:
+		name: general
+		type: radio
+		line below: true
+	choice: action
+	choice: range
+	choice: zone attack
+	choice: 
+		name: type
+		line below: true
+	choice: d6
+	choice: d12
+	choice: text
+	script: actionBarChoiceLimits(value)
+
+card field:
+	type: choice
+	name: actionAB2
+	choice: quick
+	choice: full
+	choice: damage barrier
+
+card field:
+	type: choice
+	name: rangeAB2
+	choice: melee
+	choice: ranged
+
+card field:
+	type: choice
+	name: typeAB2
+	choice: psychic
+	choice: healing
+	choice: light
+	choice: lightning
+	choice: flame
+	choice: frost
+	choice: acid
+	choice: hydro
+	choice: wind
+	choice: poison
+
+## Action Bar 3 ##
+
+card field:
+	type: multiple choice
+	name: action_bar3
+	description: action bar
+	choice:
+		name: none
+		type: radio
+	choice:
+		name: attack
+		type: radio
+	choice:
+		name: healing
+		type: radio
+	choice:
+		name: general
+		type: radio
+		line below: true
+	choice: action
+	choice: range
+	choice: zone attack
+	choice: 
+		name: type
+		line below: true
+	choice: d6
+	choice: d12
+	choice: text
+	script: actionBarChoiceLimits(value)
+
+card field:
+	type: choice
+	name: actionAB3
+	choice: quick
+	choice: full
+	choice: damage barrier
+
+card field:
+	type: choice
+	name: rangeAB3
+	choice: melee
+	choice: ranged
+
+card field:
+	type: choice
+	name: typeAB3
+	choice: psychic
+	choice: healing
+	choice: light
+	choice: lightning
+	choice: flame
+	choice: frost
+	choice: acid
+	choice: hydro
+	choice: wind
+	choice: poison
+
+
+##########################################################
+######################  Stats and Slots  #################
+##########################################################
+
+##Life/Armor ##
+
+card field:
+	type: multiple choice
+	name: stats
+	choice: channeling
+	choice: defense
+	choice: armor
+	choice: life
+	choice: slot 1
+	choice: slot 2
+
+## Equipment Slots ##
+
+card field:
+	type: choice
+	name: slot1
+	choice: none
+	choice: helm
+	choice: amulet
+	choice: chest
+	choice: cloak
+	choice: gloves
+	choice: ring
+	choice: weapon
+	choice: shield
+	choice: pants
+	choice: boots
+
+card field:
+	type: choice
+	name: slot2
+	choice: none
+	choice: helm
+	choice: amulet
+	choice: chest
+	choice: cloak
+	choice: gloves
+	choice: ring
+	choice: weapon
+	choice: shield
+	choice: pants
+	choice: boots
+
+card field:
+	type: choice
+	name: conjE
+	choice: and
+	choice: or
+
+##########################################################
+##########################################################
+##########################################################
+
+card field:
+	type: text
+	name: armor_value
+	description: armor
+
+card field:
+	type: text
+	name: life_value
+	description: life
+
+card field:
+	type: text
+	name: channeling_value
+
+card field:
+	type: text
+	name: defense_value
+
+card field:
+	type: choice
+	name: limit
+	choice: none
+	choice: no melee
+	choice: no ranged
+
+card field:
+	type: image
+	name: image
+	show statistics: false
+	description: The image of the character.
+
+card field:
+	type: text
+	name: ability
+	description: description of character's special ability.
+	multi line: true
+
+card field:
+	type: text
+	name: flavor text
+	multi line: true
+	show statistics: false
+
+card field:
+	type: text
+	name: credits
+	multi line: false
+	show statistics: false

@@ -1,0 +1,318 @@
+##########################################################
+######################  Includes  ########################
+##########################################################
+
+include file: init_script_stats
+
+##########################################################
+####################  Identifiers  #######################
+##########################################################
+
+isCreature := 		{ card.type == "CREATURE" }
+isConjuration := 	{ card.type == "CONJURATION" }
+isEquipment := 		{ card.type == "EQUIPMENT" }
+isEnchantment := 	{ card.type == "ENCHANTMENT" }
+isAttack := 		{ card.type == "ATTACK" }
+isIncantation := 	{ card.type == "INCANTATION" }
+
+isDestructible :=	{ isCreature() or isConjuration() }
+isObject :=			{ isDestructible() or isEnchantment() or isEquipment() }
+
+##########################################################
+########################  General  #######################
+##########################################################
+
+cardW := { 375 }
+cardH := { 525 }
+
+##########################################################
+########################  Header  ########################
+##########################################################
+
+## Name ##
+
+nameX := { 16 }
+nameY := { 8 }
+nameW := { 267 }
+nameH := { 22 }
+
+## Type ##
+
+typeX := { 290 }
+typeY := { 8 }
+typeW := { 68 }
+typeH := { 12 }
+
+getBackground := {
+	if isCreature() then "creature.png" else
+	if isConjuration() then "conjuration.png" else
+	if isEquipment() then "equipment.png" else
+	if isEnchantment() then "enchantment.png" else
+	if isAttack() then "attack.png" else
+	if isIncantation() then "incantation.png"
+	}
+
+## Subtype ##
+
+subtypeX := { 230 }
+subtypeY := { 21 }
+subtypeW := { 128 }
+subtypeH := { 13 }
+
+##########################################################
+####################  Targeting Bar  #####################
+##########################################################
+
+## Mana ##
+
+manaX := { 19 + if(input=="reveal") then manaW("cast") }
+manaY := { 38 }
+manaW := { if (input=="cast" or isEnchantment()) then 43 else 0 }
+manaH := { manaW(input) }
+
+## Cast/Reveal Icon ##
+
+eyeX := { 23 + if (input=="revealed") then manaW("cast") }
+eyeY := { 73 }
+eyeW := { if (isEnchantment()) then 34 else 0 }
+eyeH := { 28 }
+
+## Action ##
+
+actionX := { 63 + (if isEnchantment() then manaW("cast") else 0) }
+actionY := { 35 }
+actionW := { 36 }
+actionH := { actionW() }
+
+## Range ##
+
+rangeX := { 100 + (if isEnchantment() then manaW("cast") else 0) }
+rangeY := { 34 }
+rangeW := { 35 }
+rangeH := { rangeW() }
+
+## Target ##
+
+targetX := { 137 + (if isEnchantment() then manaW("cast") else 0) }
+targetY := { 42 }
+targetW := { 172 - (if isEnchantment() then manaW("cast") else 0) }
+targetH := { 19 }
+
+##########################################################
+########################  Text  ##########################
+##########################################################
+
+textX := { 6 }
+textY := { textBoxTop(boxTop:=348,barSize:=58) }
+textW := { 360 }
+textH := { 518 - textY() }
+
+flavorX := { 25 }
+flavorY := { 456 }
+flavorW := { 325 }
+flavorH := { 36 }
+
+creditX := { 20 }
+creditY := { 500 }
+creditW := { 345 }
+creditH := { 7 }
+
+##########################################################
+##################  Levels and Schools  ##################
+##########################################################
+
+## School ##
+
+schoolX := { 312 }
+schoolY := { 37 + ((input-1) * schoolH()) }
+schoolW := { if existsSchool(input-1) then 45 else 0 }
+schoolH := { schoolW() }
+
+getSchool := {
+	if input==1 then card.school1 else
+	if input==2 then card.school2 else
+	if input==3 then card.school3 else
+	if input==4 then card.school4
+}
+
+existsSchool := { 
+	if input == 0 then true else
+	not chosen(getSchool(input), choice: "none")
+}
+
+## Level ##
+
+levelX := { 345 }
+levelY := { 60 + ((input-1) * schoolH(input)) }
+levelW := { if existsSchool(input) then 21 else 0}
+levelH := { levelW() }
+
+## Conjunction ##
+
+conjunctionX := { if card.conjunction == "and" then 294 else 294}
+conjunctionY := { (if card.conjunction == "and" then 65 else 70) + ((input-1) * schoolH()) }
+conjunctionW := { if card.conjunction == "and" then 25 else 26 }
+conjunctionH := { if card.conjunction == "and" then 27 else 17 }
+
+getConjunctionImage := {
+	if card.conjunction == "or" then "or.png" else "and.png"
+}
+
+##########################################################
+########################  Action Bars  ###################
+##########################################################
+
+separationAB := 57
+
+## Action Bar ##
+
+actionbarX := { 0 }
+actionbarY := { 325 + (input-1)*separationAB }
+actionbarW := { 375 }
+actionbarH := { if existsActionBar(input-1) then 67 else 0 }
+
+getActionBarObject := {
+	if input == 1 then card.action_bar1 else
+	if input == 2 then card.action_bar2 else
+	if input == 3 then card.action_bar3
+}
+
+existsActionBar := { 
+	if (input==0) then true
+	else not chosen(getActionBarObject(input), choice: "none")
+}
+
+existsABAction := {
+	actionBar := getActionBarObject(input)
+	(chosen(actionBar,choice:"action") and existsActionBar(input))
+}
+
+existsABRange := {
+	actionBar := getActionBarObject(input)
+	chosen(actionBar,choice:"range")
+}
+
+existsABZone := {
+	actionBar := getActionBarObject(input)
+	chosen(actionBar,choice:"zone attack") and existsActionBar(input)
+}
+
+existsABType := {
+	actionBar := getActionBarObject(input)
+	chosen(actionBar,choice:"type") and existsActionBar(input)
+}
+
+existsABd6 := {
+	actionBar := getActionBarObject(input)
+	chosen(actionBar,choice:"d6") and existsActionBar(input)
+}
+
+existsABd12 := {
+	actionBar := getActionBarObject(input)
+	chosen(actionBar,choice:"d12") and existsActionBar(input)
+}
+
+existsABText := {
+	actionBar := getActionBarObject(input)
+	chosen(actionBar,choice:"text") and existsActionBar(input)
+}
+
+getActionBarImage := {
+	actionBar := getActionBarObject(input)
+	if chosen(actionBar, choice:"none") then nil else
+	if chosen(actionBar, choice:"attack") then "attack_bar.png" else
+	if chosen(actionBar, choice:"healing") then "healing_bar.png" else
+	if chosen(actionBar, choice:"general") then "general_bar.png"
+}
+
+separationABFields := 3
+
+countABFields := {
+	actionBar := getActionBarObject(input)
+	count_chosen(actionBar) - 1
+}
+
+getABLength := {
+	actionBar := getActionBarObject(input)
+	actionABW(input) + 
+	rangeABW(input) + 
+	zoneABW(input) + 
+	typeABW(input) +
+	d6ABW(input) +
+	d12ABW(input) +
+	textABW(input) +
+	((countABFields(input) - 1) * separationABFields)
+}
+
+startPointAB := {
+	ABLength := getABLength(input)
+	cardW()/2 - ABLength/2
+}
+
+## Order: action, range, zone attack ,type, d6, d12, text
+
+## Title Icon ##
+
+titleABX := { 106 }
+titleABY := { 334 + (input-1)*separationAB}
+titleABW := { if existsActionBar(input) then 161 else 0 }
+titleABH := { 14 }
+
+## Action Icon ##
+
+actionABX := { startPointAB(input) }
+actionABY := { 352 + (input-1)*separationAB }
+actionABW := { if existsABAction(input) then 35 else 0 }
+actionABH := { actionABW(input) }
+
+## Range Icon ##
+
+rangeABX := { actionABX(input) + actionABW(input) + if existsABRange(input) then separationABFields }
+rangeABY := { 352 + (input-1)*separationAB }
+rangeABW := { if existsABRange(input) then 35 else 0 }
+rangeABH := { rangeABW(input) }
+
+rangetABX := { rangeABX(input) + rangeABW(input)/2 - rangetABW(input)/2 }
+rangetABY := { rangeABY(input) + rangeABH(input)/2 - rangetABH(input)/2 }
+rangetABW := { if existsABRange(input) then 20 else 0 }
+rangetABH := { rangetABW(input) }
+
+## Zone Attack Icon ##
+
+zoneABX := { rangeABX(input) + rangeABW(input) + if existsABZone(input) then separationABFields }
+zoneABY := { 352 + (input-1)*separationAB }
+zoneABW := { if existsABZone(input) then 35 else 0 }
+zoneABH := { zoneABW(input) }
+
+## Type Icon ##
+
+typeABX := { zoneABX(input) + zoneABW(input) + if existsABType(input) then separationABFields }
+typeABY := { 352 + (input-1)*separationAB }
+typeABW := { if existsABType(input) then 35 else 0 }
+typeABH := { typeABW(input) }
+
+## d6 Icon ##
+
+d6ABX := { typeABX(input) + typeABW(input) + if existsABd6(input) then separationABFields }
+d6ABY := { 355 + (input-1)*separationAB }
+d6ABW := { if existsABd6(input) then 30 else 0 }
+d6ABH := { d6ABW(input) }
+
+## d12 Icon ##
+
+d12ABX := { d6ABX(input) + d6ABW(input) + if existsABd12(input) then separationABFields }
+d12ABY := { 354 + (input-1)*separationAB }
+d12ABW := { if existsABd12(input) then 90 else 0}
+d12ABH := { 30 }
+
+d12tABX := { d12ABX(input) + d12ABW(input) - d12tABW(input) }
+d12tABY := { d12ABY(input) }
+d12tABW := { if existsABd12(input) then 60 else 0 }
+d12tABH := { d12ABH(input) }
+
+## Text ##
+
+textABX := { d12ABX(input) + d12ABW(input) + if existsABText(input) then separationABFields }
+textABY := { 354 + (input-1)*separationAB }
+textABW := { if existsABText(input) then 85 else 0}
+textABH := { 30 }

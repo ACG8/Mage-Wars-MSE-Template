@@ -1,0 +1,252 @@
+##########################################################
+##                                                      ##
+##                      STATS AND SLOTS                 ##
+##                                                      ##
+##########################################################
+
+card style:
+
+##########################################################
+########################  Options Menu  ##################
+##########################################################
+
+	stats:
+		left:	{ statsX() }
+		top: 	{ statsY() }
+		width:	{ statsW() }
+		height:	{ statsH() }
+		z index: 0
+		render style: hidden
+		choice images:
+			channeling: channeling.png
+			defense: 	defense.png
+			armor:		armor.png
+			life:		life.png
+			slot 1: 	weapon.png
+			slot 2:		shield.png
+
+##########################################################
+##########################  Text Boxes  ##################
+##########################################################
+
+	life_value:
+		left:	{ lifeX() }
+		top: 	{ lifeY() }
+		width:	{ lifeW() }
+		height:	{ lifeH() }
+		z index: 3
+		alignment: middle center shrink-overflow
+		font:
+			name: Helvetica
+			size: 16
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 12
+
+	armor_value:
+		left:	{ armorX() }
+		top: 	{ armorY() }
+		width:	{ armorW() }
+		height:	{ armorH() }
+		z index: 3
+		alignment: middle center shrink-overflow
+		font:
+			name: Helvetica
+			size: 16
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 12
+
+	channeling_value:
+		left:	{ channelingX("text") }
+		top: 	{ channelingY("text") }
+		width:	{ channelingW("text") }
+		height:	{ channelingH("text") }
+		z index: 3
+		alignment: middle center shrink-overflow
+		font:
+			name: Helvetica
+			size: 16
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 12
+
+	defense_value:
+		left:	{ defenseX("text") }
+		top: 	{ defenseY("text") }
+		width:	{ defenseW("text") }
+		height:	{ defenseH("text") }
+		z index: 3
+		alignment: middle center shrink-overflow
+		font:
+			name: Helvetica
+			size: 13
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 12
+
+
+	limit:
+		left:	{ limitX() }
+		top: 	{ limitY() }
+		width:	{ limitW() }
+		height:	{ limitH() }
+		z index: 3
+		render style: image
+		choice images:
+			no melee: no_melee.png
+			no ranged: no_ranged.png
+
+##########################################################
+###########################  Slots  ######################
+##########################################################
+
+	slot1:
+		left:	{ slot1X() }
+		top: 	{ slot1Y() }
+		width:	{ slot1W() }
+		height:	{ slot1H() }
+		z index: 0
+		render style: image
+		choice images:
+			helm:		helm.png
+			amulet:		amulet.png
+			chest:		chest.png
+			cloak:		cloak.png
+			gloves:		gloves.png
+			ring:		ring.png
+			weapon:		weapon.png
+			shield:		shield.png
+			pants:		pants.png
+			boots:		boots.png
+
+	slot2:
+		left:	{ slot2X() }
+		top: 	{ slot2Y() }
+		width:	{ slot2W() }
+		height:	{ slot2H() }
+		z index: 0
+		render style: image
+		choice images:
+			helm:		helm.png
+			amulet:		amulet.png
+			chest:		chest.png
+			cloak:		cloak.png
+			gloves:		gloves.png
+			ring:		ring.png
+			weapon:		weapon.png
+			shield:		shield.png
+			pants:		pants.png
+			boots:		boots.png
+	conjE:
+		left:	{ conjEX() }
+		top: 	{ conjEY() }
+		width:	{ conjEW() }
+		height:	{ conjEH() }
+		z index: 1
+		render style: image
+		choice images:
+			and: andE.png
+			or: orE.png
+
+##########################################################
+########################  Stat Images  ###################
+##########################################################
+
+extra card field:
+	type: choice
+	name: life
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: choice
+	name: armor
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: choice
+	name: defense
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: choice
+	name: reuse
+	choice: 1x
+	choice: 2x
+	choice: infinite
+
+extra card field:
+	type: choice
+	name: channeling
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card style:	
+	life:
+		left:	{ lifeX() }
+		top: 	{ lifeY() }
+		width:	{ lifeW() }
+		height:	{ lifeH() }
+		z index: 0
+		render style: image
+		choice images:
+			default: life.png
+	armor:
+		left:	{ armorX() }
+		top: 	{ armorY() }
+		width:	{ armorW() }
+		height:	{ armorH() }
+		z index: 0
+		render style: image
+		choice images:
+			default: armor.png
+	defense:
+		left:	{ defenseX("image") }
+		top: 	{ defenseY("image") }
+		width:	{ defenseW("image") }
+		height:	{ defenseH("image") }
+		z index: 0
+		render style: image
+		choice images:
+			default: defense.png
+
+	reuse:
+		left:	{ reuseX() }
+		top: 	{ reuseY() }
+		width:	{ reuseW() }
+		height:	{ reuseH() }
+		z index: 3
+		render style: image
+		choice images:
+			1x: 1x.png
+			2x: 2x.png
+			infinite: infinite.png
+
+	channeling:
+		left:	{ channelingX() }
+		top: 	{ channelingY() }
+		width:	{ channelingW() }
+		height:	{ channelingH() }
+		z index: 0
+		render style: image
+		choice images:
+			default: channeling.png

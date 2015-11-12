@@ -1,0 +1,1235 @@
+﻿mse version: 2.0.0
+game: mw
+full name: Mage Wars
+short name: MW
+icon: sample.png
+position hint: 1
+installer group: Mage Wars/game files
+
+depends on: mw.mse-game
+include file: style_stats
+
+card width: 375
+card height: 525
+card dpi: 150
+
+card style:
+
+##########################################################
+########################  Header  ########################
+##########################################################
+
+	name:
+		left:	{ nameX() }
+		top: 	{ nameY() }
+		width:	{ nameW() }
+		height:	{ nameH() }
+		alignment: middle left shrink-overflow
+		z index: 0
+		font:
+			name: Times New Roman
+			size: 16
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 14
+
+	type:
+		left:	{ typeX() }
+		top: 	{ typeY() }
+		width:	{ typeW() }
+		height:	{ typeH() }
+		z index: 0
+		render style: text
+		alignment: middle right shrink-overflow
+		font:
+			name: Helvetica Bold Condensed
+			size: 9
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 8
+
+	subtype:
+		left:	{ subtypeX() }
+		top: 	{ subtypeY() }
+		width:	{ subtypeW() }
+		height:	{ subtypeH() }
+		alignment: top right shrink-overflow
+		z index: 0
+		font:
+			name: Helvetica Bold Condensed
+			size: 9
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 8
+
+##########################################################
+######################  Targeting  #######################
+##########################################################
+
+	mana_cost:
+		left:	{ manaX("cast") }
+		top:	{ manaY("cast") }
+		height:	{ manaH("cast") }
+		width:	{ manaW("cast") }
+		z index: 3
+		alignment: middle center shrink-overflow
+		font:
+			name: Helvetica Bold Condensed
+			size: 16
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 40
+
+	reveal_cost:
+		left:	{ manaX("reveal") }
+		top:	{ manaY("reveal") }
+		height:	{ manaH("reveal") }
+		width:	{ manaW("reveal") }
+		z index: 3
+		alignment: middle center shrink-overflow
+		font:
+			name: Helvetica Bold Condensed
+			size: 16
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 40
+
+	action_type:
+		left:	{ actionX() }
+		top: 	{ actionY() }
+		width:	{ actionW() }
+		height:	{ actionH() }
+		z index: 3
+		render style: image
+		choice images:
+			quick: quick.png
+			full: full.png
+
+	range_text:
+		left:	{ rangeX() }
+		top: 	{ rangeY() }
+		width:	{ rangeW() }
+		height:	{ rangeH() }
+		z index: 3
+		alignment: middle center shrink-overflow
+		font:
+			name: Helvetica Bold Condensed
+			size: 10
+			color: rgb(0,0,0)
+			scale down to: 40
+
+	target_bar:
+		left:	{ targetX() }
+		top: 	{ targetY() }
+		width:	{ targetW() }
+		height:	{ targetH() }
+		z index: 3
+		alignment: middle left shrink-overflow
+		font:
+			name: Helvetica Bold Condensed
+			size: 10
+			color: rgb(255,255,255)
+			scale down to: 40
+
+##########################################################
+##################  Levels and Schools  ##################
+##########################################################
+
+## Schools ##
+
+	school1:
+		left:	{ schoolX(1) }
+		top: 	{ schoolY(1) }
+		width:	{ schoolW(1) }
+		height:	{ schoolH(1) }
+		z index: 0
+		render style: image
+		choice images:
+			nature: nature.png
+			war: war.png
+			dark: dark.png
+			holy: holy.png
+			arcane: arcane.png
+			mind: mind.png
+			water: water.png
+			fire: fire.png
+			earth: earth.png
+			air: air.png
+
+	school2:
+		left:	{ schoolX(2) }
+		top: 	{ schoolY(2) }
+		width:	{ schoolW(2) }
+		height:	{ schoolH(2) }
+		z index: 0
+		render style: image
+		choice images:
+			none: 
+			nature: nature.png
+			war: war.png
+			dark: dark.png
+			holy: holy.png
+			arcane: arcane.png
+			mind: mind.png
+			water: water.png
+			fire: fire.png
+			earth: earth.png
+			air: air.png
+
+	school3:
+		left:	{ schoolX(3) }
+		top: 	{ schoolY(3) }
+		width:	{ schoolW(3) }
+		height:	{ schoolH(3) }
+		z index: 0
+		render style: image
+		choice images:
+			none: 
+			nature: nature.png
+			war: war.png
+			dark: dark.png
+			holy: holy.png
+			arcane: arcane.png
+			mind: mind.png
+			water: water.png
+			fire: fire.png
+			earth: earth.png
+			air: air.png
+
+	school4:
+		left:	{ schoolX(4) }
+		top: 	{ schoolY(4) }
+		width:	{ schoolW(4) }
+		height:	{ schoolH(4) }
+		z index: 0
+		render style: image
+		choice images:
+			none: 
+			nature: nature.png
+			war: war.png
+			dark: dark.png
+			holy: holy.png
+			arcane: arcane.png
+			mind: mind.png
+			water: water.png
+			fire: fire.png
+			earth: earth.png
+			air: air.png
+
+## Conjunction ##
+
+	conjunction:
+		left:	{ conjunctionX() }
+		top: 	{ conjunctionY(1) }
+		width:	{ conjunctionW() }
+		height:	{ if existsSchool(2) then conjunctionH() else 0}
+		z index: 2
+		render style: image
+		choice images:
+			and: and.png
+			or: or.png
+
+## Levels ##
+
+	level1:
+		left:	{ levelX(1) }
+		top: 	{ levelY(1) }
+		width:	{ levelW(1) }
+		height:	{ levelH(1) }
+		z index: 2
+		alignment: middle center shrink-overflow
+		font:
+			name: Helvetica
+			size: 10
+			shadow color: black
+			shadow blur: 1
+			weight: bold
+			color: rgb(255,255,255)
+
+	level2:
+		left:	{ levelX(2) }
+		top: 	{ levelY(2) }
+		width:	{ levelW(2) }
+		height:	{ if existsSchool(2) then levelH(2) else 0 }
+		z index: 2
+		alignment: middle center shrink-overflow
+		font:
+			name: Helvetica
+			size: 10
+			shadow color: black
+			shadow blur: 1
+			weight: bold
+			color: rgb(255,255,255)
+
+	level3:
+		left:	{ levelX(3) }
+		top: 	{ levelY(3) }
+		width:	{ levelW(3) }
+		height:	{ if existsSchool(3) then levelH(3) else 0 }
+		z index: 2
+		alignment: middle center shrink-overflow
+		font:
+			name: Helvetica
+			size: 10
+			shadow color: black
+			shadow blur: 1
+			weight: bold
+			color: rgb(255,255,255)
+
+	level4:
+		left:	{ levelX(4) }
+		top: 	{ levelY(4) }
+		width:	{ levelW(4) }
+		height:	{ if existsSchool(4) then levelH(4) else 0 }
+		z index: 2
+		alignment: middle center shrink-overflow
+		font:
+			name: Helvetica
+			size: 10
+			shadow color: black
+			shadow blur: 1
+			weight: bold
+			color: rgb(255,255,255)
+
+##########################################################
+#######################  Abilities  ######################
+##########################################################
+
+###   Action Bar 1   ###
+
+	action_bar1:
+		left:	{ actionbarX(1) }
+		top: 	{ actionbarY(1) }
+		width:	{ actionbarW(1) }
+		height:	{ actionbarH(1) }
+		z index: 3
+		render style: image
+		image: {getActionBarImage(1)}
+
+	actionAB1:
+		left:	{ actionABX(1) }
+		top: 	{ actionABY(1) }
+		width:	{ actionABW(1) }
+		height:	{ actionABH(1) }
+		z index: 4
+		render style: image
+		choice images:
+			quick: quick.png
+			full: full.png
+			damage barrier: damage_barrier.png
+
+	rangeAB1:
+		left:	{ rangeABX(1) }
+		top: 	{ rangeABY(1) }
+		width:	{ rangeABW(1) }
+		height:	{ rangeABH(1) }
+		z index: 4
+		render style: image
+		choice images:
+			melee: melee.png
+			ranged: ranged.png
+
+	typeAB1:
+		left:	{ typeABX(1) }
+		top: 	{ typeABY(1) }
+		width:	{ typeABW(1) }
+		height:	{ typeABH(1) }
+		z index: 4
+		render style: image
+		choice images:
+			psychic: 	psychic.png
+			healing: 	healing.png
+			light: 		light.png
+			lightning: 	lightning.png
+			flame: 		flame.png
+			frost: 		frost.png
+			acid: 		acid.png
+			hydro: 		hydro.png
+			wind: 		wind.png
+			poison: 	poison.png
+
+###   Action Bar 2   ###
+
+	action_bar2:
+		left:	{ actionbarX(2) }
+		top: 	{ actionbarY(2) }
+		width:	{ actionbarW(2) }
+		height:	{ actionbarH(2) }
+		z index: 3
+		render style: image
+		image: {getActionBarImage(2)}
+
+	actionAB2:
+		left:	{ actionABX(2) }
+		top: 	{ actionABY(2) }
+		width:	{ actionABW(2) }
+		height:	{ actionABH(2) }
+		z index: 4
+		render style: image
+		choice images:
+			quick: quick.png
+			full: full.png
+			damage barrier: damage_barrier.png
+
+	rangeAB2:
+		left:	{ rangeABX(2) }
+		top: 	{ rangeABY(2) }
+		width:	{ rangeABW(2) }
+		height:	{ rangeABH(2) }
+		z index: 4
+		render style: image
+		choice images:
+			melee: melee.png
+			ranged: ranged.png
+
+	typeAB2:
+		left:	{ typeABX(2) }
+		top: 	{ typeABY(2) }
+		width:	{ typeABW(2) }
+		height:	{ typeABH(2) }
+		z index: 4
+		render style: image
+		choice images:
+			psychic: 	psychic.png
+			healing: 	healing.png
+			light: 		light.png
+			lightning: 	lightning.png
+			flame: 		flame.png
+			frost: 		frost.png
+			acid: 		acid.png
+			hydro: 		hydro.png
+			wind: 		wind.png
+			poison: 	poison.png
+
+###   Action Bar 3   ###
+
+	action_bar3:
+		left:	{ actionbarX(3) }
+		top: 	{ actionbarY(3) }
+		width:	{ actionbarW(3) }
+		height:	{ actionbarH(3) }
+		z index: 3
+		render style: image
+		image: {getActionBarImage(3)}
+
+	actionAB3:
+		left:	{ actionABX(3) }
+		top: 	{ actionABY(3) }
+		width:	{ actionABW(3) }
+		height:	{ actionABH(3) }
+		z index: 4
+		render style: image
+		choice images:
+			quick: quick.png
+			full: full.png
+			damage barrier: damage_barrier.png
+
+	rangeAB3:
+		left:	{ rangeABX(3) }
+		top: 	{ rangeABY(3) }
+		width:	{ rangeABW(3) }
+		height:	{ rangeABH(3) }
+		z index: 4
+		render style: image
+		choice images:
+			melee: melee.png
+			ranged: ranged.png
+
+	typeAB3:
+		left:	{ typeABX(3) }
+		top: 	{ typeABY(3) }
+		width:	{ typeABW(3) }
+		height:	{ typeABH(3) }
+		z index: 4
+		render style: image
+		choice images:
+			psychic: 	psychic.png
+			healing: 	healing.png
+			light: 		light.png
+			lightning: 	lightning.png
+			flame: 		flame.png
+			frost: 		frost.png
+			acid: 		acid.png
+			hydro: 		hydro.png
+			wind: 		wind.png
+			poison: 	poison.png
+
+###   Text   ###
+
+	ability:
+		left:	{ textX() }
+		top: 	{ textY() }
+		width:	{ textW() }
+		height:	{ textH() }
+		alignment: top center shrink-overflow
+		z index: 0
+		font:
+			name: Helvetica Bold Condensed
+			size: 11
+			color: rgb(0,0,0)
+			scale down to: 40
+
+	flavor text:
+		top: 	{ flavorY() }
+		left:	{ flavorX() }
+		width:	{ flavorW() }
+		height:	{ flavorH() }
+		alignment: bottom center shrink-overflow
+		z index: 5
+		font:
+			name: Helvetica Bold Condensed
+			size: 9
+			color: rgb(0,0,0)
+
+	credits:
+		left:	{ creditX() }
+		top: 	{ creditY() }
+		width:	{ creditW() }
+		height:	{ creditH() }
+		alignment: middle center
+		z index: 5
+		font:
+			name: Helvetica Bold Condensed
+			size: 7
+			color: rgb(0,0,0)
+
+##########################################################
+#########################  Other  ########################
+##########################################################
+
+	image:
+		top: 68
+		left: 20
+		right: 352
+		bottom: 334
+		z index: -10
+
+
+## Background Image ##
+
+extra card field:
+	type: choice
+	name: background
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card style:	
+	background:
+		left: 0
+		top: 0
+		width: 	{ cardW() }
+		height: { cardH() }
+		z index: -1
+		render style: image
+		choice images:
+			default: { getBackground() }
+
+## Reveal and Range Icons ##
+
+extra card field:
+	type: choice
+	name: reveal
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: choice
+	name: range
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: choice
+	name: hidden eye
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: choice
+	name: revealed eye
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card style:	
+	range:
+		left:	{ rangeX() }
+		top: 	{ rangeY() }
+		width:	{ rangeW() }
+		height:	{ rangeH() }
+		z index: 0
+		render style: image
+		choice images:
+			default: range.png
+	reveal:
+		left:	{ manaX("reveal") }
+		top:	{ manaY("reveal") }
+		height:	{ manaH("reveal") }
+		width:	{ manaW("reveal") }
+		z index: 0
+		render style: image
+		choice images:
+			default: cost.png
+	hidden eye:
+		left:	{ eyeX("hidden") }
+		top:	{ eyeY("hidden") }
+		height:	{ eyeH("hidden") }
+		width:	{ eyeW("hidden") }
+		z index: 1
+		render style: image
+		choice images:
+			default: hidden_eye.png
+	revealed eye:
+		left:	{ eyeX("revealed") }
+		top:	{ eyeY("revealed") }
+		height:	{ eyeH("revealed") }
+		width:	{ eyeW("revealed") }
+		z index: 1
+		render style: image
+		choice images:
+			default: revealed_eye.png
+
+##########################################################
+#########################  Levels  #######################
+##########################################################
+
+extra card field:
+	type: choice
+	name: level1
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: choice
+	name: level2
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: choice
+	name: level3
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: choice
+	name: level4
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: choice
+	name: conjunction2
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: choice
+	name: conjunction3
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card style:
+	level1:
+		left:	{ levelX(1) }
+		top: 	{ levelY(1) }
+		width:	{ levelW(1) }
+		height:	{ levelH(1) }
+		z index: 1
+		render style: image
+		choice images:
+			default: level.png
+	level2:
+		left:	{ levelX(2) }
+		top: 	{ levelY(2) }
+		width:	{ levelW(2) }
+		height:	{ if existsSchool(2) then levelH(2) else 0 }
+		z index: 1
+		render style: image
+		choice images:
+			default: {if existsSchool(2) then "level.png" else nil}
+	level3:
+		left:	{ levelX(3) }
+		top: 	{ levelY(3) }
+		width:	{ levelW(3) }
+		height:	{ if existsSchool(3) then levelH(3) else 0 }
+		z index: 1
+		render style: image
+		choice images:
+			default: {if existsSchool(3) then "level.png" else nil}
+	level4:
+		left:	{ levelX(4) }
+		top: 	{ levelY(4) }
+		width:	{ levelW(4) }
+		height:	{ if existsSchool(4) then levelH(4) else 0 }
+		z index: 1
+		render style: image
+		choice images:
+			default: {if existsSchool(4) then "level.png" else nil}
+
+	conjunction2:
+		left:	{ conjunctionX(2) }
+		top: 	{ conjunctionY(2) }
+		width:	{ conjunctionW(2) }
+		height:	{ if existsSchool(3) then conjunctionH(2) else 0}
+		z index: 2
+		render style: image
+		choice images:
+			default: { getConjunctionImage() }
+
+	conjunction3:
+		left:	{ conjunctionX(3) }
+		top: 	{ conjunctionY(3) }
+		width:	{ conjunctionW(3) }
+		height:	{ if existsSchool(4) then conjunctionH(3) else 0}
+		z index: 2
+		render style: image
+		choice images:
+			default: { getConjunctionImage() }
+
+##########################################################
+######################  Action Bar 1  ####################
+##########################################################
+
+extra card field:
+	type: text
+	name: titleAB1
+	multi line: false
+	show statistics: false
+	card list visible: true
+	card list column: 999
+
+extra card field:
+	type: text
+	name: rangetAB1
+	multi line: false
+	show statistics: false
+	card list visible: true
+	card list column: 999
+
+extra card field:
+	type: choice
+	name: zoneAB1
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: choice
+	name: d6AB1
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: text
+	name: d6tAB1
+	multi line: false
+	show statistics: false
+	card list visible: true
+	card list column: 999
+
+extra card field:
+	type: choice
+	name: d12AB1
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: text
+	name: d12tAB1
+	multi line: true
+	show statistics: false
+	card list visible: true
+	card list column: 999
+
+extra card field:
+	type: text
+	name: textAB1
+	multi line: true
+	show statistics: false
+	card list visible: true
+	card list column: 999
+
+extra card style:
+	titleAB1:
+		left:	{ titleABX(1) }
+		top: 	{ titleABY(1) }
+		width:	{ titleABW(1) }
+		height:	{ titleABH(1) }
+		z index: 5
+		alignment: middle center shrink-overflow
+		font:
+			name: Helvetica Bold Condensed
+			size: 9
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 8
+	rangetAB1:
+		left:	{ rangetABX(1) }
+		top: 	{ rangetABY(1) }
+		width:	{ rangetABW(1) }
+		height:	{ rangetABH(1) }
+		z index: 5
+		alignment: middle center shrink-overflow
+		font:
+			name: Helvetica Bold Condensed
+			size: 10
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 12
+	zoneAB1:
+		left:	{ zoneABX(1) }
+		top: 	{ zoneABY(1) }
+		width:	{ zoneABW(1) }
+		height:	{ zoneABH(1) }
+		z index: 4
+		render style: image
+		choice images:
+			default: zone_attack.png
+	d6AB1:
+		left:	{ d6ABX(1) }
+		top: 	{ d6ABY(1) }
+		width:	{ d6ABW(1) }
+		height:	{ d6ABH(1) }
+		z index: 4
+		render style: image
+		choice images:
+			default: d6.png
+	d6tAB1:
+		left:	{ d6ABX(1) }
+		top: 	{ d6ABY(1) }
+		width:	{ d6ABW(1) }
+		height:	{ d6ABH(1) }
+		z index: 5
+		alignment: middle center shrink-overflow
+		font:
+			name: Helvetica Bold Condensed
+			size: 26
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 12
+	d12AB1:
+		left:	{ d12ABX(1) }
+		top: 	{ d12ABY(1) }
+		width:	{ d12ABW(1) }
+		height:	{ d12ABH(1) }
+		z index: 4
+		render style: image
+		choice images:
+			default: d12_box.png
+	d12tAB1:
+		left:	{ d12tABX(1) }
+		top: 	{ d12tABY(1) }
+		width:	{ d12tABW(1) }
+		height:	{ d12tABH(1) }
+		z index: 5
+		alignment: middle left shrink-overflow
+		font:
+			name: Helvetica Bold Condensed
+			size: 7
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 12
+	textAB1:
+		left:	{ textABX(1) }
+		top: 	{ textABY(1) }
+		width:	{ textABW(1) }
+		height:	{ textABH(1) }
+		z index: 4
+		alignment: middle left shrink-overflow
+		font:
+			name: Helvetica Bold Condensed
+			size: 8
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 8
+
+##########################################################
+######################  Action Bar 2  ####################
+##########################################################
+
+extra card field:
+	type: text
+	name: titleAB2
+	multi line: false
+	show statistics: false
+	card list visible: true
+	card list column: 999
+
+extra card field:
+	type: text
+	name: rangetAB2
+	multi line: false
+	show statistics: false
+	card list visible: true
+	card list column: 999
+
+extra card field:
+	type: choice
+	name: zoneAB2
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: choice
+	name: d6AB2
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: text
+	name: d6tAB2
+	multi line: false
+	show statistics: false
+	card list visible: true
+	card list column: 999
+
+extra card field:
+	type: choice
+	name: d12AB2
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: text
+	name: d12tAB2
+	multi line: true
+	show statistics: false
+	card list visible: true
+	card list column: 999
+
+extra card field:
+	type: text
+	name: textAB2
+	multi line: true
+	show statistics: false
+	card list visible: true
+	card list column: 999
+
+extra card style:
+	titleAB2:
+		left:	{ titleABX(2) }
+		top: 	{ titleABY(2) }
+		width:	{ titleABW(2) }
+		height:	{ titleABH(2) }
+		z index: 6
+		alignment: middle center shrink-overflow
+		font:
+			name: Helvetica Bold Condensed
+			size: 9
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 8
+	rangetAB2:
+		left:	{ rangetABX(2) }
+		top: 	{ rangetABY(2) }
+		width:	{ rangetABW(2) }
+		height:	{ rangetABH(2) }
+		z index: 6
+		alignment: middle center shrink-overflow
+		font:
+			name: Helvetica Bold Condensed
+			size: 10
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 12
+	zoneAB2:
+		left:	{ zoneABX(2) }
+		top: 	{ zoneABY(2) }
+		width:	{ zoneABW(2) }
+		height:	{ zoneABH(2) }
+		z index: 5
+		render style: image
+		choice images:
+			default: zone_attack.png
+	d6AB2:
+		left:	{ d6ABX(2) }
+		top: 	{ d6ABY(2) }
+		width:	{ d6ABW(2) }
+		height:	{ d6ABH(2) }
+		z index: 6
+		render style: image
+		choice images:
+			default: d6.png
+	d6tAB2:
+		left:	{ d6ABX(2) }
+		top: 	{ d6ABY(2) }
+		width:	{ d6ABW(2) }
+		height:	{ d6ABH(2) }
+		z index: 7
+		alignment: middle center shrink-overflow
+		font:
+			name: Helvetica Bold Condensed
+			size: 26
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 12
+	d12AB2:
+		left:	{ d12ABX(2) }
+		top: 	{ d12ABY(2) }
+		width:	{ d12ABW(2) }
+		height:	{ d12ABH(2) }
+		z index: 5
+		render style: image
+		choice images:
+			default: d12_box.png
+	d12tAB2:
+		left:	{ d12tABX(2) }
+		top: 	{ d12tABY(2) }
+		width:	{ d12tABW(2) }
+		height:	{ d12tABH(2) }
+		z index: 6
+		alignment: middle left shrink-overflow
+		font:
+			name: Helvetica Bold Condensed
+			size: 7
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 12
+	textAB2:
+		left:	{ textABX(2) }
+		top: 	{ textABY(2) }
+		width:	{ textABW(2) }
+		height:	{ textABH(2) }
+		z index: 5
+		alignment: middle left shrink-overflow
+		font:
+			name: Helvetica Bold Condensed
+			size: 8
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 8
+
+##########################################################
+######################  Action Bar 3  ####################
+##########################################################
+
+extra card field:
+	type: text
+	name: titleAB3
+	multi line: false
+	show statistics: false
+	card list visible: true
+	card list column: 999
+
+extra card field:
+	type: text
+	name: rangetAB3
+	multi line: false
+	show statistics: false
+	card list visible: true
+	card list column: 999
+
+extra card field:
+	type: choice
+	name: zoneAB3
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: choice
+	name: d6AB3
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: text
+	name: d6tAB3
+	multi line: false
+	show statistics: false
+	card list visible: true
+	card list column: 999
+
+extra card field:
+	type: choice
+	name: d12AB3
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: text
+	name: d12tAB3
+	multi line: true
+	show statistics: false
+	card list visible: true
+	card list column: 999
+
+extra card field:
+	type: text
+	name: textAB3
+	multi line: true
+	show statistics: false
+	card list visible: true
+	card list column: 999
+
+extra card style:
+	titleAB3:
+		left:	{ titleABX(3) }
+		top: 	{ titleABY(3) }
+		width:	{ titleABW(3) }
+		height:	{ titleABH(3) }
+		z index: 6
+		alignment: middle center shrink-overflow
+		font:
+			name: Helvetica Bold Condensed
+			size: 9
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 8
+	rangetAB3:
+		left:	{ rangetABX(3) }
+		top: 	{ rangetABY(3) }
+		width:	{ rangetABW(3) }
+		height:	{ rangetABH(3) }
+		z index: 6
+		alignment: middle center shrink-overflow
+		font:
+			name: Helvetica Bold Condensed
+			size: 10
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 12
+	zoneAB3:
+		left:	{ zoneABX(3) }
+		top: 	{ zoneABY(3) }
+		width:	{ zoneABW(3) }
+		height:	{ zoneABH(3) }
+		z index: 5
+		render style: image
+		choice images:
+			default: zone_attack.png
+	d6AB3:
+		left:	{ d6ABX(3) }
+		top: 	{ d6ABY(3) }
+		width:	{ d6ABW(3) }
+		height:	{ d6ABH(3) }
+		z index: 6
+		render style: image
+		choice images:
+			default: d6.png
+	d6tAB3:
+		left:	{ d6ABX(3) }
+		top: 	{ d6ABY(3) }
+		width:	{ d6ABW(3) }
+		height:	{ d6ABH(3) }
+		z index: 7
+		alignment: middle center shrink-overflow
+		font:
+			name: Helvetica Bold Condensed
+			size: 26
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 12
+	d12AB3:
+		left:	{ d12ABX(3) }
+		top: 	{ d12ABY(3) }
+		width:	{ d12ABW(3) }
+		height:	{ d12ABH(3) }
+		z index: 5
+		render style: image
+		choice images:
+			default: d12_box.png
+	d12tAB3:
+		left:	{ d12tABX(3) }
+		top: 	{ d12tABY(3) }
+		width:	{ d12tABW(3) }
+		height:	{ d12tABH(3) }
+		z index: 6
+		alignment: middle left shrink-overflow
+		font:
+			name: Helvetica Bold Condensed
+			size: 7
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 12
+	textAB3:
+		left:	{ textABX(3) }
+		top: 	{ textABY(3) }
+		width:	{ textABW(3) }
+		height:	{ textABH(3) }
+		z index: 5
+		alignment: middle left shrink-overflow
+		font:
+			name: Helvetica Bold Condensed
+			size: 8
+			weight: bold
+			shadow color: black
+			shadow blur: 1
+			color: rgb(255,255,255)
+			scale down to: 8

@@ -37,7 +37,7 @@ card style:
 		z index: 3
 		alignment: middle center shrink-overflow
 		font:
-			name: Helvetica
+			name: Arial
 			size: 16
 			weight: bold
 			shadow color: black
@@ -53,7 +53,7 @@ card style:
 		z index: 3
 		alignment: middle center shrink-overflow
 		font:
-			name: Helvetica
+			name: Arial
 			size: 16
 			weight: bold
 			shadow color: black
@@ -69,7 +69,7 @@ card style:
 		z index: 3
 		alignment: middle center shrink-overflow
 		font:
-			name: Helvetica
+			name: Arial
 			size: 16
 			weight: bold
 			shadow color: black
@@ -85,7 +85,7 @@ card style:
 		z index: 3
 		alignment: middle center shrink-overflow
 		font:
-			name: Helvetica
+			name: Arial
 			size: 13
 			weight: bold
 			shadow color: black

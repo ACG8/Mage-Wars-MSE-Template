@@ -1,6 +1,6 @@
 ##########################################################
 ##                                                      ##
-##                      STATS AND SLOTS                 ##
+##                      STATS AND SLOTS     ##
 ##                                                      ##
 ##########################################################
 
@@ -37,7 +37,7 @@ card style:
 		z index: 3
 		alignment: middle center shrink-overflow
 		font:
-			name: Arial
+			name: HelveticaNeueLT Com 57 Cn
 			size: 16
 			weight: bold
 			shadow color: black
@@ -53,11 +53,12 @@ card style:
 		z index: 3
 		alignment: middle center shrink-overflow
 		font:
-			name: Arial
+			name: HelveticaNeueLT Com 57 Cn
 			size: 16
 			weight: bold
 			shadow color: black
-			shadow blur: 1
+			shadow displacement x: 2
+			shadow displacement y: 2
 			color: rgb(255,255,255)
 			scale down to: 12
 
@@ -69,7 +70,7 @@ card style:
 		z index: 3
 		alignment: middle center shrink-overflow
 		font:
-			name: Arial
+			name: HelveticaNeueLT Com 57 Cn
 			size: 16
 			weight: bold
 			shadow color: black
@@ -85,7 +86,7 @@ card style:
 		z index: 3
 		alignment: middle center shrink-overflow
 		font:
-			name: Arial
+			name: HelveticaNeueLT Com 57 Cn
 			size: 13
 			weight: bold
 			shadow color: black

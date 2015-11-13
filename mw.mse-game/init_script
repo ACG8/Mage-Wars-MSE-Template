@@ -102,10 +102,15 @@ targetH := { 19 }
 ########################  Text  ##########################
 ##########################################################
 
-textX := { 6 }
-textY := { textBoxTop(boxTop:=348,barSize:=58) }
-textW := { 360 }
-textH := { 518 - textY() }
+cardTraitsX := { 20 }
+cardTraitsY := { 450 }
+cardTraitsW := { 360 }
+cardTraitsH := { 400 }
+
+cardTextX := { 6 }
+cardTextY := { textBoxTop(boxTop:=348,barSize:=58) }
+cardTextW := { 360 }
+cardTextH := { 500 - cardTextY() }
 
 flavorX := { 25 }
 flavorY := { 456 }

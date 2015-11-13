@@ -238,9 +238,6 @@ card field:
 		name: attack
 		type: radio
 	choice:
-		name: healing
-		type: radio
-	choice:
 		name: general
 		type: radio
 		line below: true
@@ -295,9 +292,6 @@ card field:
 		name: attack
 		type: radio
 	choice:
-		name: healing
-		type: radio
-	choice:
 		name: general
 		type: radio
 		line below: true
@@ -350,9 +344,6 @@ card field:
 		type: radio
 	choice:
 		name: attack
-		type: radio
-	choice:
-		name: healing
 		type: radio
 	choice:
 		name: general
@@ -484,17 +475,24 @@ card field:
 	type: image
 	name: image
 	show statistics: false
-	description: The image of the character.
+	description: The Art for this Card
+	
+card field:
+	type: text
+	name: cardTraits
+	description: the traits for this card
+	multi line: true
 
 card field:
 	type: text
-	name: ability
-	description: description of character's special ability.
+	name: cardText
+	description: the card text for this card
 	multi line: true
 
 card field:
 	type: text
 	name: flavor text
+	description: the flavor text for this card
 	multi line: true
 	show statistics: false
 

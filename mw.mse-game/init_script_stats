@@ -26,17 +26,17 @@ statsH := { if isObject() then 198 else 0 }
 
 ## Life ##
 
-lifeX := { 327 }
-lifeY := { 288 }
-lifeW := { 36 }
-lifeH := { if hasLife() then 46 else 0 }
+lifeX := { 327 - 10 }
+lifeY := { 288 - 5 }
+lifeW := { 54 }
+lifeH := { if hasLife() then lifeW() else 0 }
 
-lifeS := { if hasLife() then (5 + lifeH()) else 0 }
+lifeS := { if hasLife() then (lifeH()) else 0 }
 
 ## Armor ##
 
 armorX := { 327 }
-armorY := { lifeY() - lifeS() }
+armorY := { 288 - lifeS() }
 armorW := { 37 }
 armorH := { if hasArmor() then 43 else 0 }
 
@@ -69,10 +69,10 @@ limitS := { 0 + if hasLimit() then (limitH() - 8) }
 
 ## Channeling ##
 
-channelingX := { 327 }
+channelingX := { 320 }
 channelingY := { (if isEquipment() then slot2Y() else lifeY()) - limitS() - defenseS() - armorS() - lifeS() - slot1S() - slot2S() }
-channelingW := { 37 }
-channelingH := { 0 + if hasChanneling() then (if input=="text" then 30 else 43) }
+channelingW := { 50 }
+channelingH := { 0 + if hasChanneling() then (if input=="text" then 40 else channelingW()) }
 
 channelingS := { if hasChanneling() then (5 + channelingH("image")) else 0 }
 

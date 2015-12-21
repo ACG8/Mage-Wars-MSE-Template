@@ -102,9 +102,9 @@ targetH := { 19 }
 ########################  Text  ##########################
 ##########################################################
 
-cardTraitsX := { 20 }
+cardTraitsX := { 20 } #Not sure what this is - let's just cancel it for now
 cardTraitsY := { 450 }
-cardTraitsW := { 360 }
+cardTraitsW := {0} #{ 360 }
 cardTraitsH := { 400 }
 
 cardTextX := { 6 }
@@ -173,8 +173,8 @@ separationAB := 57
 
 actionbarX := { 0 }
 actionbarY := { 325 + (input-1)*separationAB }
-actionbarW := { 375 }
-actionbarH := { if existsActionBar(input-1) then 67 else 0 }
+actionbarW := { if existsActionBar(input) then 375 else 30 }
+actionbarH := { if existsActionBar(input -1) then (if existsActionBar(input) then 67 else 30) else 0 }
 
 getActionBarObject := {
 	if input == 1 then card.action_bar1 else

@@ -112,12 +112,17 @@ cardTextY := { textBoxTop(boxTop:=348,barSize:=58) }
 cardTextW := { 360 }
 cardTextH := { 500 - cardTextY() }
 
+cardTextFontSizeX := { 325 }
+cardTextFontSizeY := { textBoxTop(boxTop:=348,barSize:=58) }
+cardTextFontSizeW := { 50 }
+cardTextFontSizeH := { 10 }
+
 flavorX := { 25 }
 flavorY := { 456 }
 flavorW := { 325 }
 flavorH := { 36 }
 
-creditX := { 20 }
+creditX := { 15 }
 creditY := { 500 }
 creditW := { 345 }
 creditH := { 7 }

@@ -96,7 +96,6 @@ card style:
 			color: rgb(255,255,255)
 			scale down to: 12
 
-
 	limit:
 		left:	{ limitX() }
 		top: 	{ limitY() }

@@ -493,9 +493,23 @@ card style:
 		z index: 0
 		font:
 			name: HelveticaNeueLT Com 55 Roman
-			size: 11
+			size: { card.cardTextFontSize }
 			color: rgb(0,0,0)
 			scale down to: 40
+
+	cardTextFontSize:
+		left:	{ cardTextFontSizeX() }
+		top: 	{ cardTextFontSizeY() }
+		width:	{ cardTextFontSizeW() }
+		height:	{ cardTextFontSizeH() }
+		alignment: top center shrink-overflow]
+		render style: hidden
+		z index: 1
+		choice: 11
+		choice: 8
+		choice: 9
+		choice:	10
+		choice:	12
 
 	flavor text:
 		top: 	{ flavorY() }

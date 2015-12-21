@@ -111,6 +111,15 @@ card field:
 	name: target_bar
 	description: Legal targets for this spell
 
+card field:
+	type: choice
+	name: cardTextFontSize
+	choice: 11
+	choice: 8
+	choice: 9
+	choice: 10
+	choice: 12
+
 ##########################################################
 ##################  Levels and Schools  ##################
 ##########################################################

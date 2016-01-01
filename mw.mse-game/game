@@ -92,6 +92,8 @@ card field:
 	name: reveal_cost
 	card list visible: true
 	card list column: 4
+	choice: standard
+	choice: mandatory
 	show statistics: false
 
 card field:
@@ -277,16 +279,15 @@ card field:
 card field:
 	type: choice
 	name: typeAB1
-	choice: psychic
+	choice: acid
+	choice: flame
+	choice: frost
 	choice: healing
 	choice: light
 	choice: lightning
-	choice: flame
-	choice: frost
-	choice: acid
-	choice: hydro
-	choice: wind
 	choice: poison
+	choice: psychic
+	choice: wind
 
 ## Action Bar 2 ##
 

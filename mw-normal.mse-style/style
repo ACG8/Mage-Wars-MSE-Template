@@ -96,6 +96,9 @@ card style:
 		width:	{ manaW("reveal") }
 		z index: 3
 		alignment: middle center shrink-overflow
+		choice images:
+			standard: cost.png
+			mandatory: cost-mandatory.png
 		font:
 			name: HelveticaNeueLT Com 57 Cn
 			size: 16
@@ -580,6 +583,14 @@ extra card field:
 
 extra card field:
 	type: choice
+	name: mandatory
+	editable: false
+	show statistics: false
+	save value: false
+	choice: default
+
+extra card field:
+	type: choice
 	name: range
 	editable: false
 	show statistics: false
@@ -621,6 +632,15 @@ extra card style:
 		render style: image
 		choice images:
 			default: cost.png
+	reveal mandatory:
+		left:	{ manaX("reveal") }
+		top:	{ manaY("reveal") }
+		height:	{ manaH("reveal") }
+		width:	{ manaW("reveal") }
+		z index: 0
+		render style: image
+		choice images:
+			default: cost-mandatory.png
 	hidden eye:
 		left:	{ eyeX("hidden") }
 		top:	{ eyeY("hidden") }

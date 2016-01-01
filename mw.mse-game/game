@@ -55,7 +55,7 @@ card field:
 card field:
 	type: choice
 	name: type
-	description: type of the creature
+	description: type of the spell
 	script: to_upper(value)
 	choice: creature
 	choice: conjuration
@@ -88,8 +88,9 @@ card field:
 	show statistics: false
 
 card field:
-	type: text
+	type: choice
 	name: reveal_cost
+	description: The reveal cost for the enchantment. Is it mandatory?
 	card list visible: true
 	card list column: 4
 	choice: standard

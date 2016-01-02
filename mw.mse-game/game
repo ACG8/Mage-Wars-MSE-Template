@@ -89,12 +89,20 @@ card field:
 
 card field:
 	type: choice
-	name: reveal_cost
-	description: The reveal cost for the enchantment. Is it mandatory?
+	name: reveal_type
+	description: Is it mandatory?
 	card list visible: true
 	card list column: 4
 	choice: standard
 	choice: mandatory
+	show statistics: false
+
+card field:
+	type: text
+	name: reveal_cost
+	description: The reveal cost for the enchantment.
+	card list visible: true
+	card list column: 4
 	show statistics: false
 
 card field:

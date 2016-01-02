@@ -89,6 +89,18 @@ card style:
 			color: rgb(255,255,255)
 			scale down to: 40
 
+	reveal_type:
+		left:	{ manaX("reveal") }
+		top:	{ manaY("reveal") }
+		height:	{ manaH("reveal")/2 }
+		width:	{ manaW("reveal")/2 }
+		z index: 4
+		alignment: middle center shrink-overflow
+		render style: hidden
+		choice images:
+			standard: cost.png
+			mandatory: cost-mandatory.png
+
 	reveal_cost:
 		left:	{ manaX("reveal") }
 		top:	{ manaY("reveal") }
@@ -96,9 +108,6 @@ card style:
 		width:	{ manaW("reveal") }
 		z index: 3
 		alignment: middle center shrink-overflow
-		choice images:
-			standard: cost.png
-			mandatory: cost-mandatory.png
 		font:
 			name: HelveticaNeueLT Com 57 Cn
 			size: 16
@@ -583,14 +592,6 @@ extra card field:
 
 extra card field:
 	type: choice
-	name: mandatory
-	editable: false
-	show statistics: false
-	save value: false
-	choice: default
-
-extra card field:
-	type: choice
 	name: range
 	editable: false
 	show statistics: false
@@ -628,25 +629,17 @@ extra card style:
 		top:	{ manaY("reveal") }
 		height:	{ manaH("reveal") }
 		width:	{ manaW("reveal") }
-		z index: 0
+		z index: 2
 		render style: image
 		choice images:
-			default: cost.png
-	reveal mandatory:
-		left:	{ manaX("reveal") }
-		top:	{ manaY("reveal") }
-		height:	{ manaH("reveal") }
-		width:	{ manaW("reveal") }
-		z index: 0
-		render style: image
-		choice images:
-			default: cost-mandatory.png
+			default: { if card.reveal_type == "mandatory" then "cost-mandatory.png" else "cost.png" }
+
 	hidden eye:
 		left:	{ eyeX("hidden") }
 		top:	{ eyeY("hidden") }
 		height:	{ eyeH("hidden") }
 		width:	{ eyeW("hidden") }
-		z index: 1
+		z index: 10
 		render style: image
 		choice images:
 			default: hidden_eye.png
@@ -655,7 +648,7 @@ extra card style:
 		top:	{ eyeY("revealed") }
 		height:	{ eyeH("revealed") }
 		width:	{ eyeW("revealed") }
-		z index: 1
+		z index: 10
 		render style: image
 		choice images:
 			default: revealed_eye.png

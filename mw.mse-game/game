@@ -19,8 +19,7 @@ init script:
 			input, 
 			choice1: "none", 
 			choice2: "attack",
-			choice3: "healing",
-			choice4: "general",
+			choice3: "general",
 			)
 		}
 	include file: init_script
@@ -139,16 +138,16 @@ card field:
 	type: choice
 	name: school1
 	description: school of the spell
-	choice: nature
-	choice: war
-	choice: dark
-	choice: holy
-	choice: arcane
-	choice: mind
-	choice: water
-	choice: fire
-	choice: earth
-	choice: air
+	choice: Nature
+	choice: War
+	choice: Dark
+	choice: Holy
+	choice: Arcane
+	choice: Mind
+	choice: Water
+	choice: Fire
+	choice: Earth
+	choice: Air
 	card list visible: true
 	card list column: 5
 
@@ -164,16 +163,16 @@ card field:
 	name: school2
 	description: school of the spell
 	choice: none
-	choice: nature
-	choice: war
-	choice: dark
-	choice: holy
-	choice: arcane
-	choice: mind
-	choice: water
-	choice: fire
-	choice: earth
-	choice: air
+	choice: Nature
+	choice: War
+	choice: Dark
+	choice: Holy
+	choice: Arcane
+	choice: Mind
+	choice: Water
+	choice: Fire
+	choice: Earth
+	choice: Air
 	card list visible: true
 	card list column: 7
 
@@ -189,16 +188,16 @@ card field:
 	name: school3
 	description: school of the spell
 	choice: none
-	choice: nature
-	choice: war
-	choice: dark
-	choice: holy
-	choice: arcane
-	choice: mind
-	choice: water
-	choice: fire
-	choice: earth
-	choice: air
+	choice: Nature
+	choice: War
+	choice: Dark
+	choice: Holy
+	choice: Arcane
+	choice: Mind
+	choice: Water
+	choice: Fire
+	choice: Earth
+	choice: Air
 	card list visible: true
 	card list column: 9
 
@@ -214,16 +213,16 @@ card field:
 	name: school4
 	description: school of the spell
 	choice: none
-	choice: nature
-	choice: war
-	choice: dark
-	choice: holy
-	choice: arcane
-	choice: mind
-	choice: water
-	choice: fire
-	choice: earth
-	choice: air
+	choice: Nature
+	choice: War
+	choice: Dark
+	choice: Holy
+	choice: Arcane
+	choice: Mind
+	choice: Water
+	choice: Fire
+	choice: Earth
+	choice: Air
 	card list visible: true
 	card list column: 11
 

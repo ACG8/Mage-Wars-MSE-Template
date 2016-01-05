@@ -117,9 +117,9 @@ cardTextFontSizeY := { textBoxTop(boxTop:=348,barSize:=58) }
 cardTextFontSizeW := { 50 }
 cardTextFontSizeH := { 10 }
 
-flavorX := { 25 }
+flavorX := { 10 }
 flavorY := { 456 }
-flavorW := { 325 }
+flavorW := { 360 }
 flavorH := { 36 }
 
 creditX := { 15 }
@@ -231,7 +231,6 @@ getActionBarImage := {
 	actionBar := getActionBarObject(input)
 	if chosen(actionBar, choice:"none") then nil else
 	if chosen(actionBar, choice:"attack") then "attack_bar.png" else
-	if chosen(actionBar, choice:"healing") then "healing_bar.png" else
 	if chosen(actionBar, choice:"general") then "general_bar.png"
 }
 

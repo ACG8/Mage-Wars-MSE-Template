@@ -172,16 +172,16 @@ card style:
 		z index: 0
 		render style: image
 		choice images:
-			nature: nature.png
-			war: war.png
-			dark: dark.png
-			holy: holy.png
-			arcane: arcane.png
-			mind: mind.png
-			water: water.png
-			fire: fire.png
-			earth: earth.png
-			air: air.png
+			Nature: nature.png
+			War: war.png
+			Dark: dark.png
+			Holy: holy.png
+			Arcane: arcane.png
+			Mind: mind.png
+			Water: water.png
+			Fire: fire.png
+			Earth: earth.png
+			Air: air.png
 
 	school2:
 		left:	{ schoolX(2) }
@@ -192,16 +192,16 @@ card style:
 		render style: image
 		choice images:
 			none: 
-			nature: nature.png
-			war: war.png
-			dark: dark.png
-			holy: holy.png
-			arcane: arcane.png
-			mind: mind.png
-			water: water.png
-			fire: fire.png
-			earth: earth.png
-			air: air.png
+			Nature: nature.png
+			War: war.png
+			Dark: dark.png
+			Holy: holy.png
+			Arcane: arcane.png
+			Mind: mind.png
+			Water: water.png
+			Fire: fire.png
+			Earth: earth.png
+			Air: air.png
 
 	school3:
 		left:	{ schoolX(3) }
@@ -212,16 +212,16 @@ card style:
 		render style: image
 		choice images:
 			none: 
-			nature: nature.png
-			war: war.png
-			dark: dark.png
-			holy: holy.png
-			arcane: arcane.png
-			mind: mind.png
-			water: water.png
-			fire: fire.png
-			earth: earth.png
-			air: air.png
+			Nature: nature.png
+			War: war.png
+			Dark: dark.png
+			Holy: holy.png
+			Arcane: arcane.png
+			Mind: mind.png
+			Water: water.png
+			Fire: fire.png
+			Earth: earth.png
+			Air: air.png
 
 	school4:
 		left:	{ schoolX(4) }
@@ -232,16 +232,16 @@ card style:
 		render style: image
 		choice images:
 			none: 
-			nature: nature.png
-			war: war.png
-			dark: dark.png
-			holy: holy.png
-			arcane: arcane.png
-			mind: mind.png
-			water: water.png
-			fire: fire.png
-			earth: earth.png
-			air: air.png
+			Nature: nature.png
+			War: war.png
+			Dark: dark.png
+			Holy: holy.png
+			Arcane: arcane.png
+			Mind: mind.png
+			Water: water.png
+			Fire: fire.png
+			Earth: earth.png
+			Air: air.png
 
 ## Conjunction ##
 
@@ -514,14 +514,14 @@ card style:
 		top: 	{ cardTextFontSizeY() }
 		width:	{ cardTextFontSizeW() }
 		height:	{ cardTextFontSizeH() }
-		alignment: top center shrink-overflow]
+		alignment: top center shrink-overflow
 		render style: hidden
 		z index: 1
-		choice: 11
-		choice: 8
-		choice: 9
-		choice:	10
-		choice:	12
+			choice: 11
+			choice: 8
+			choice: 9
+			choice:	10
+			choice:	12
 
 	flavor text:
 		top: 	{ flavorY() }
@@ -531,8 +531,8 @@ card style:
 		alignment: bottom center shrink-overflow
 		z index: 5
 		font:
-			name: HelveticaNeueLT Com 75 Bd
-			size: 9
+			name: StempSchLigIta
+			size: 11
 			color: rgb(0,0,0)
 
 	credits:

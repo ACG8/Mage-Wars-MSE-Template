@@ -364,16 +364,16 @@ card style:
 		z index: 4
 		render style: image
 		choice images:
-			psychic: 	psychic.png
-			healing: 	healing.png
-			light: 		light.png
-			lightning: 	lightning.png
+			acid: 		acid.png
 			flame: 		flame.png
 			frost: 		frost.png
-			acid: 		acid.png
+			healing: 	healing.png
 			hydro: 		hydro.png
-			wind: 		wind.png
+			light: 		light.png
+			lightning: 	lightning.png
 			poison: 	poison.png
+			psychic: 	psychic.png
+			wind: 		wind.png
 
 ###   Action Bar 2   ###
 
@@ -417,16 +417,16 @@ card style:
 		z index: 4
 		render style: image
 		choice images:
-			psychic: 	psychic.png
-			healing: 	healing.png
-			light: 		light.png
-			lightning: 	lightning.png
+			acid: 		acid.png
 			flame: 		flame.png
 			frost: 		frost.png
-			acid: 		acid.png
+			healing: 	healing.png
 			hydro: 		hydro.png
-			wind: 		wind.png
+			light: 		light.png
+			lightning: 	lightning.png
 			poison: 	poison.png
+			psychic: 	psychic.png
+			wind: 		wind.png
 
 ###   Action Bar 3   ###
 
@@ -470,16 +470,16 @@ card style:
 		z index: 4
 		render style: image
 		choice images:
-			psychic: 	psychic.png
-			healing: 	healing.png
-			light: 		light.png
-			lightning: 	lightning.png
+			acid: 		acid.png
 			flame: 		flame.png
 			frost: 		frost.png
-			acid: 		acid.png
+			healing: 	healing.png
 			hydro: 		hydro.png
-			wind: 		wind.png
+			light: 		light.png
+			lightning: 	lightning.png
 			poison: 	poison.png
+			psychic: 	psychic.png
+			wind: 		wind.png
 
 ###   Text   ###
 

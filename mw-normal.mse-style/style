@@ -190,7 +190,6 @@ card style:
 		z index: 0
 		render style: image
 		choice images:
-			none:
 			Nature: nature.png
 			War: war.png
 			Dark: dark.png
@@ -210,7 +209,6 @@ card style:
 		z index: 0
 		render style: image
 		choice images:
-			none:
 			Nature: nature.png
 			War: war.png
 			Dark: dark.png
@@ -230,7 +228,6 @@ card style:
 		z index: 0
 		render style: image
 		choice images:
-			none:
 			Nature: nature.png
 			War: war.png
 			Dark: dark.png

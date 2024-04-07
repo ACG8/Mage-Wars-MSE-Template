@@ -1,11 +1,10 @@
 ﻿mse version: 2.0.0
 game: mw
-full name: Mage Wars
-short name: MW
+full name: standard
+short name: standard
 icon: sample.png
 position hint: 1
-installer group: Mage Wars/game files
-
+version: 1.0
 depends on: mw.mse-game
 include file: style_stats
 
@@ -191,7 +190,7 @@ card style:
 		z index: 0
 		render style: image
 		choice images:
-			none: 
+			none:
 			Nature: nature.png
 			War: war.png
 			Dark: dark.png
@@ -211,7 +210,7 @@ card style:
 		z index: 0
 		render style: image
 		choice images:
-			none: 
+			none:
 			Nature: nature.png
 			War: war.png
 			Dark: dark.png
@@ -231,7 +230,7 @@ card style:
 		z index: 0
 		render style: image
 		choice images:
-			none: 
+			none:
 			Nature: nature.png
 			War: war.png
 			Dark: dark.png
@@ -569,7 +568,7 @@ extra card field:
 	save value: false
 	choice: default
 
-extra card style:	
+extra card style:
 	background:
 		left: 0
 		top: 0
@@ -614,7 +613,7 @@ extra card field:
 	save value: false
 	choice: default
 
-extra card style:	
+extra card style:
 	range:
 		left:	{ rangeX() }
 		top: 	{ rangeY() }

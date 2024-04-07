@@ -1,9 +1,9 @@
 ﻿mse version: 2.0.0
-full name: Mage Wars
 short name: MW
-#installer group: Mage Wars/game files
+full name: Mage Wars
 icon: magewarslogo.png
 position hint:-45
+version:1.0
 
 init script:
 	#existsSchool2 := {card.school2 != "none"}
@@ -16,8 +16,8 @@ init script:
 
 	actionBarChoiceLimits := {
 		require_exclusive_choice(
-			input, 
-			choice1: "none", 
+			input,
+			choice1: "none",
 			choice2: "attack",
 			choice3: "general",
 			)
@@ -263,7 +263,7 @@ card field:
 	choice: action
 	choice: range
 	choice: zone attack
-	choice: 
+	choice:
 		name: type
 		line below: true
 	choice: d6
@@ -316,7 +316,7 @@ card field:
 	choice: action
 	choice: range
 	choice: zone attack
-	choice: 
+	choice:
 		name: type
 		line below: true
 	choice: d6
@@ -370,7 +370,7 @@ card field:
 	choice: action
 	choice: range
 	choice: zone attack
-	choice: 
+	choice:
 		name: type
 		line below: true
 	choice: d6
@@ -494,7 +494,7 @@ card field:
 	name: image
 	show statistics: false
 	description: The Art for this Card
-	
+
 card field:
 	type: text
 	name: cardTraits
